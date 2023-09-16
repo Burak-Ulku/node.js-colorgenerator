@@ -27,13 +27,29 @@ function generateColoredBlockWithThreeRows(color) {
       for (let a = 0; a < 14; a++) {
         process.stdout.write(' ');
         if (a === 6) {
-          let hexcolor = chalk.hex(color)(color);
-          process.stdout.write(hexcolor);
+          let hexcodewithcolor = chalk.hex(color)(color);
+          process.stdout.write(hexcodewithcolor);
         }
       }
+      console.log(hashtag);
+    } else {
+      const block = '#'.repeat(31);
+      const coloredBlock = chalk.hex(color)(block);
+      console.log(coloredBlock);
+    }
+  }
+}
+function printHexCode(color) {}
+
+// Main function to run the application
 function main() {
+  // generateColoredBlock();
   let color = getRandomHexColor();
   generateColoredBlockWithThreeRows(color);
+
+  //your function
+  //generateColoredBlockWithThreeRows(color);
 }
 
+// Run the main function
 main();
