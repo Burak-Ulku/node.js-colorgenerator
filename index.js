@@ -12,17 +12,28 @@ function getRandomHexColor() {
 }
 
 // Function to generate and display the colored block
-function generateColoredBlock() {
-  const color = getRandomHexColor();
-  const block = '#'.repeat(31) + '\n';
-  const coloredBlock = chalk.hex(color)(block);
-  console.log(coloredBlock);
-}
-
-// Main function to run the application
+function generateColoredBlockWithThreeRows(color) {
+  for (let i = 0; i < 9; i++) {
+    if (i === 3 || i === 5) {
+      let hashtag = chalk.hex(color)('#####');
+      process.stdout.write(hashtag);
+      for (let a = 0; a < 21; a++) {
+        process.stdout.write(' ');
+      }
+      console.log(hashtag);
+    } else if (i === 4) {
+      let hashtag = chalk.hex(color)('#####');
+      process.stdout.write(hashtag);
+      for (let a = 0; a < 14; a++) {
+        process.stdout.write(' ');
+        if (a === 6) {
+          let hexcolor = chalk.hex(color)(color);
+          process.stdout.write(hexcolor);
+        }
+      }
 function main() {
-  generateColoredBlock();
+  let color = getRandomHexColor();
+  generateColoredBlockWithThreeRows(color);
 }
 
-// Run the main function
 main();
